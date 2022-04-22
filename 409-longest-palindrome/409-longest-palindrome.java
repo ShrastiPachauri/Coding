@@ -25,7 +25,7 @@ class Solution {
         Arrays.sort(arr);
         
         Stack<Character> st=new Stack<Character>();
-        System.out.println("Arrays after sort"+ arr.toString());
+       //System.out.println("Arrays after sort"+ arr.toString());
         for(Character x:arr)
         {
             if(st.size()==0)
