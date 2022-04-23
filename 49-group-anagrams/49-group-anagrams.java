@@ -37,35 +37,26 @@ class Solution {
             {
                 continue;
             }
-            int flag=0;
+            
              List<String> sub=new ArrayList<String>();
            for(int j=i+1;j<strs.length;j++)
         {
-           
-             
                if(!visited.contains(j))
                {
             if(isAnagram(strs[i],strs[j]))
-            { flag=1;
-             //stem.out.println("added "+strs[j]+"in"+strs[i]);
-             sub.add(strs[j]);
+            {  sub.add(strs[j]);
              visited.add(j);
             }
             
                }
             
            } 
-            
-                 sub.add(strs[i]);
+              sub.add(strs[i]);
                  visited.add(i);
-           
-           
-            ans.add(sub);
+           ans.add(sub);
         }
         
         return ans;
-        
-        
         
     }
 }
