@@ -43,8 +43,10 @@ class Solution {
         {
                if(!visited.contains(j))
                {
+                   
             if(isAnagram(strs[i],strs[j]))
-            {  sub.add(strs[j]);
+            { 
+            sub.add(strs[j]);
              visited.add(j);
             }
             
