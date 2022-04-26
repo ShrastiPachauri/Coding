@@ -17,7 +17,7 @@ class Solution {
             }
             
            s.push(x%10);
-            System.out.println("pushed "+(x%10));
+            //System.out.println("pushed "+(x%10));
             carry=x/10;
         
         }
