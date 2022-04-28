@@ -1,7 +1,7 @@
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         
-        StringBuilder prefix=new StringBuilder();
+       
         
         for(int i=0;i<strs[0].length();i++)
         {
@@ -17,18 +17,16 @@ class Solution {
                  
              } 
         }
-           if(flag==0)
-           {
-               prefix.append(strs[0].charAt(i));
-           }
-            else
+           
+           if(flag==1)
             {
-                break;
+                return strs[0].substring(0,i);
+                
             }
         
     }
         
-        return prefix.toString();
+        return strs[0];
         
 }
 }
