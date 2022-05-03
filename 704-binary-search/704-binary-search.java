@@ -7,7 +7,7 @@ class Solution {
         while(l<=h)
         {
             mid=l+(h-l)/2;
-            System.out.println("mid is"+nums[mid]);
+            //System.out.println("mid is"+nums[mid]);
             if(nums[mid]==target)
             {
                 return mid;
