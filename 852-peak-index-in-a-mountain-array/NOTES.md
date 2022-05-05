@@ -1,0 +1,1 @@
+in while atleast h and l be adjacent when peak is at far end
