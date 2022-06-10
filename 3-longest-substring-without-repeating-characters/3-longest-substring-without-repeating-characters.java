@@ -7,9 +7,7 @@ class Solution {
         int cnt=0;
         for(int i=0;i<s.length();i++)
         {
-           
-            
-            for(int j=i;j<s.length();j++)
+          for(int j=i;j<s.length();j++)
             {
                 
                  if(hs.contains(s.charAt(j)))
@@ -22,10 +20,8 @@ class Solution {
                 {
                     hs.add(s.charAt(j));
                     cnt++;
-                }
-                if(cnt>max)
-                {
-                    max=cnt;
+                    
+                    max=cnt>max?cnt:max;
                 }
                 
             }
