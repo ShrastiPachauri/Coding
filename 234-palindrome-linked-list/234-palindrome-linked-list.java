@@ -40,7 +40,7 @@ class Solution {
             }
             
         }
-        System.out.println("cnt "+cnt);
+        // System.out.println("cnt "+cnt);
         if(cnt<=1)
         {
             return true;
