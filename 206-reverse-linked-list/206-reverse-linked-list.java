@@ -20,20 +20,23 @@ class Solution {
         ListNode next=curr.next;
         
         
-        while(curr!=null )
-        {
-            System.out.println("current is"+curr.val);
-           curr.next=prev;
-            prev=curr;
-            curr=next;
-            if(curr==null)
-            {
-                break;
-            }
-            next=curr.next;
+    while(curr!=null)
+    {
+        
+        
+        curr.next=prev;
+        prev=curr;
+        curr=next;
+        if(curr!=null)
+        {next=curr.next;}
+     
+        
+        
+        
+        
+    }
             
-            
-            }
-        return prev;
+     return prev;       
+       
     }
 }
