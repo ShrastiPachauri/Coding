@@ -12,11 +12,11 @@ class Solution {
         {
         for(int i=row;col<matrix[0].length;col++)
         {
-             System.out.println("row is "+row+ " col "+col);
+            // System.out.println("row is "+row+ " col "+col);
             if(matrix[i][col]!=1000)
             {l.add(matrix[i][col]);
             matrix[i][col]=1000;//visited
-             System.out.println("visited (right)"+i+" "+col+" "+matrix[i][col]);
+             //System.out.println("visited (right)"+i+" "+col+" "+matrix[i][col]);
              visited++;
             }
             else
@@ -27,7 +27,7 @@ class Solution {
             
             
         }
-            System.out.println("visited and un"+visited+" "+unvisited);
+            //System.out.println("visited and un"+visited+" "+unvisited);
         if(visited==unvisited)
         {
             break;
@@ -41,7 +41,7 @@ class Solution {
             if(matrix[row][col]!=1000)
             {l.add(matrix[row][col]);
              matrix[row][col]=1000;//visited
-             System.out.println("visited (down)"+row+" "+col+" "+matrix[row][col]);
+             //System.out.println("visited (down)"+row+" "+col+" "+matrix[row][col]);
              visited++;
             }
             else
@@ -58,10 +58,10 @@ class Solution {
         {
             break;
         }
-            System.out.println("visited and un"+visited+" "+unvisited);
+            //System.out.println("visited and un"+visited+" "+unvisited);
            
         //left
-          System.out.println("for down "+row+" "+col);
+          //System.out.println("for down "+row+" "+col);
         for(;col>=0;col--)
         {
             if(matrix[row][col]!=1000)
@@ -85,7 +85,7 @@ class Solution {
         {
             break;
         }
-            System.out.println("visited and un"+visited+" "+unvisited);
+            //System.out.println("visited and un"+visited+" "+unvisited);
         //top
         --row;
         for(;row>=0;row--)
@@ -93,7 +93,7 @@ class Solution {
             if(matrix[row][col]!=1000)
             {l.add(matrix[row][col]);
              matrix[row][col]=1000;//visited
-             System.out.println("visited (top)"+row+" "+col+" "+matrix[row][col]);
+             //System.out.println("visited (top)"+row+" "+col+" "+matrix[row][col]);
              visited++;
             }
             else
@@ -111,7 +111,7 @@ class Solution {
         {
             break;
         }
-        System.out.println("visited and un"+visited+" "+unvisited +"for next "+row +" "+col);
+        //System.out.println("visited and un"+visited+" "+unvisited +"for next "+row +" "+col);
         }
         return l;
     }
