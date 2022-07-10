@@ -25,7 +25,7 @@ class Solution {
             {
                 ListNode n=new ListNode(temp.val);
                 e.next=n;
-                System.out.println("Value of  is"+e.val);
+                //System.out.println("Value of  is"+e.val);
                 e=e.next;
             }
             
@@ -41,7 +41,7 @@ class Solution {
             {
                 ListNode n=new ListNode(temp.val);
                 e.next=n;
-                System.out.println("Value of  is"+e.val);
+                //System.out.println("Value of  is"+e.val);
                 e=e.next;
             }
             
