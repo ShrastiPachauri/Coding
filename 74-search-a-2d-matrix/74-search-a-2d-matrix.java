@@ -33,7 +33,7 @@ class Solution {
                  mid=l+(h-l)/2;
                  if(matrix[row][mid]==target)
                  {
-                      System.out.println("target found "+i);
+                      //System.out.println("target found "+i);
                      return true;
                  }
                  if(matrix[row][mid]<target)
