@@ -21,7 +21,7 @@ class Solution {
             if(flag==0)
             {
                 curr=pq.poll();
-                //System.out.println("curr is "+curr);
+              
                 flag=1;
                 continue;
                 
@@ -35,9 +35,9 @@ class Solution {
             if((pq.peek()-curr)==1  )
             {
                 curr=pq.poll();
-                 //System.out.println("curr is "+curr);
+                
                 cnt++;
-                 //System.out.println("cnt "+cnt);
+                 
             }
             else
             {
