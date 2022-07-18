@@ -1,26 +1,31 @@
 class Solution {
     public int majorityElement(int[] nums) {
         double limit=nums.length/2.0;
+        int cnt=1;
+        int element=nums[0];
         
-        HashMap<Integer,Integer> hm=new HashMap<Integer,Integer>();
-        
-        for(int i=0;i<nums.length;i++)
+        for(int i=1;i<nums.length;i++)
         {
-            hm.put(nums[i],hm.getOrDefault(nums[i],0)+1);
+            if(cnt>=1 )
+            {
+                if(nums[i]==element)
+                {
+                    cnt++;
+                }
+                else
+                {
+                    cnt--;
+                }
+            }
+            else
+            {
+                element=nums[i];
+                cnt++;
+            }
            
         }
         
-        for(Map.Entry<Integer,Integer> x:hm.entrySet())
-        {
-            
-            if(x.getValue()>limit)
-            {
-                return x.getKey();
-            }
-            
-            
-        }
-        return -1;
+       return element;
         
     }
 }
