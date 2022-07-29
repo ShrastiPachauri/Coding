@@ -14,27 +14,36 @@
  * }
  */
 class Solution {
-
     List<Integer> ans=new ArrayList<Integer>();
     
-    Queue<TreeNode> q=new ArrayDeque<TreeNode>();
-         
-     
+    
+    public void f(TreeNode root)
+    {
+        
+        
+        if(root.left!=null)
+        {f(root.left);}
+        
+       ans.add(root.val);
+        
+        if(root.right!=null)
+        {f(root.right);}
+    }
+    
+    
+    
+    
+    
+    
+    
     public List<Integer> inorderTraversal(TreeNode root) {
         
-        if(root==null)
-        {
-            return ans ;
-        }
-        
-        
-        ans=inorderTraversal(root.left);
-        ans.add(root.val);
-        ans=inorderTraversal(root.right);
-        
+       if(root==null)
+       {
+           return ans;
+       }
+        f(root);
         return ans;
-            
-           
         
     }
 }
