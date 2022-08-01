@@ -1,43 +1,49 @@
 class Solution {
-    int [][]matrix;
-    public int f(int d,int r)
-    { 
-      
-        if(d==0 && r==0)
+    
+    int[][]dp;
+
+    public int f(int m,int n,int i,int j)
+    {
+        if(i+j==(m+n-2))
         {
             return 1;
         }
-        if(matrix[d][r]!=-1)
+        if(dp[i][j]!=-1)
         {
-            return matrix[d][r];
+            return dp[i][j];
         }
-        int c1=0,c2=0;
-        if(d>0)
-        {c1=f(d-1,r);}
-        if(r>0)
-        {c2=f(d,r-1);}
-        matrix[d][r]=c1+c2;
-        return c1+c2;
         
+       int x=0;
+        int y=0;
         
+        if(i<m-1)
+        {x=f(m,n,i+1,j);}
+        
+       if(j<n-1)
+       {y=f(m,n,i,j+1);}
+        
+       
+    dp[i][j]=x+y;
+    
+        
+        return dp[i][j];
         
         
         
     }
     
-    
-    
-    
     public int uniquePaths(int m, int n) {
-       
-       matrix=new int[m][n];
-        for(int i=0;i<m;i++)
+        
+        dp=new int[m+1][n+1];
+        
+        for(int i=0;i<=m;i++)
         {
-            for(int j=0;j<n;j++)
+            for(int j=0;j<=n;j++)
             {
-                matrix[i][j]=-1;
+                dp[i][j]=-1;
             }
         }
-        return f(m-1,n-1);
+        int res=f(m,n,0,0);
+        return res;
     }
 }
