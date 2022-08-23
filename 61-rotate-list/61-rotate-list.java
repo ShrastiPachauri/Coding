@@ -9,58 +9,57 @@
  * }
  */
 class Solution {
-    
-    public ListNode f(ListNode head)
-    {
-        ListNode temp=head;
-        if(head.next==null)
-        {
-            return head;
-        }
-        while(temp.next.next!=null)
-        {
-            temp=temp.next;
-        }
-        
-        ListNode rotated=temp.next;
-        temp.next=null;
-        
-        
-        rotated.next=head;
-        head=rotated;
-        
-        return head;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public ListNode rotateRight(ListNode head, int k) {
+        
         if(head==null)
         {
+            return null;
+        }
+        
+        int cnt=0;
+        
+        ListNode temp=head;
+        
+        while(temp!=null)
+        {
+            cnt++;
+            temp=temp.next;
+            
+        }
+        
+        temp=head;//reset temp
+        ListNode t=head;//head node
+        int ti=0;
+        int K=k%cnt;//net effective rotation
+        if(K==0) //no rotation
+        {
             return head;
         }
-        ListNode temp=head;
-        int cnt=0;
-         while(temp!=null)
+        
+        
+        
+        
+         while(true)
         {
-              cnt++;
+             ti++;
+             if(ti==cnt-K)
+             {
+                 break;
+             }
             temp=temp.next;
+            
         }
         
-        
-        
-        int effective=k%cnt;
-        while(effective-->0)
+        ListNode n=temp.next;//starting of breakpoint
+        temp.next=null;//end of list
+        head=n;//reset head
+        while(n.next!=null)
         {
-            head=f(head);
+            n=n.next;
         }
+        n.next=t;
+        
         return head;
+        
     }
 }
