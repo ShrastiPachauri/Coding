@@ -1,7 +1,7 @@
 class Solution {
     public int singleNonDuplicate(int[] arr) {
         
-        Arrays.sort(arr);//sorted
+       
         //System.out.println("sorted array "+arr);
       if(arr.length==1)
       {
