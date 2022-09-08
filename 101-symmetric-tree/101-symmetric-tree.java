@@ -15,34 +15,23 @@
  */
 class Solution {
     
-List<Integer> s=new ArrayList<Integer>();
     
-    public boolean isSymmetric(TreeNode root) {
-       
-        if(root==null||root.left==null && root.right==null)
-        {
-            return true;
-        }
-        if(root.left==null && root.right!=null || root.right==null && root.left!=null )
-        {
-            return false;
-        }
-    return helper(root.left ,root.right);
-    
+    public boolean checkSymmetry(TreeNode root1,TreeNode root2)
+    {
+        if(root1==null&&root2==null)return true;
+        if((root1==null&&root2!=null)||root1!=null&&root2==null)return false;
+        
+       if(root1.val!=root2.val)return false;
+        
+        
+        return checkSymmetry(root1.left,root2.right)&&checkSymmetry(root1.right,root2.left);
+        
     }
     
-    public boolean helper(TreeNode l,TreeNode r)
-    {
-        if(l==null || r==null)
-        {
-            return l==r;
-        }
-        if(l.val!=r.val)
-        {
-            return false;
-        }
-        return helper(l.left,r.right) && helper(l.right,r.left);
+    
+    public boolean isSymmetric(TreeNode root) {
         
+        return checkSymmetry(root.left,root.right);
         
     }
 }
