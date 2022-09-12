@@ -1,0 +1,1 @@
+//oracle can handle differenceOfDate
