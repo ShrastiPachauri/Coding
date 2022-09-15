@@ -1,31 +1,32 @@
 class Solution {
     
-     
-    public int f(int[] nums, int target ,int index,int sum) {
-        
-        if(index==nums.length && sum==target)
-        {
-            return 1;
-        }
-        if(index==nums.length )
-        {
-            return 0;
-        }
+    
+    public int findWays(int[]nums,int target,int sum,int index,int[]ans)
+    {
+        if(sum==target && index==nums.length)ans[0]++;
+        if(index==nums.length)return ans[0];
         
         
-       int a=f(nums,target,index+1,sum+nums[index])+f(nums,target,index+1,sum-nums[index]);
+        
+        //choices 
+        
+       
+        findWays(nums,target,sum-nums[index],index+1,ans);
+        findWays(nums,target,sum+nums[index],index+1,ans);
         
         
-        return a;
+        return ans[0];
         
         
     }
     
-    
     public int findTargetSumWays(int[] nums, int target) {
         
-        int ans=f(nums,target,0,0);
-        return ans;
+        int ans[]=new int[1];
+        return findWays(nums,target,0,0,ans);
+        
+        
+        
         
         
     }
