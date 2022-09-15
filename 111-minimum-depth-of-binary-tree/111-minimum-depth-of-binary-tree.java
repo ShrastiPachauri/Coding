@@ -16,57 +16,19 @@
 class Solution {
     public int minDepth(TreeNode root) {
         
-        int ans=0;
+       if(root==null)return 0;
+        if(root.left==null && root.right==null)return 1;
+        int l=Integer.MAX_VALUE;
+        int r=Integer.MAX_VALUE;
         
-        Deque<TreeNode> dq=new ArrayDeque<TreeNode>();
-        if(root!=null)
-        {
-         dq.addLast(root);
-        }
-        else
-        {
-            return ans;
-        }
-        int level=1;
-        while(!dq.isEmpty())
-        {
-            
-            int s=dq.size();
-            
-            for(int i=1;i<=s;i++)
-            {
-                TreeNode t=dq.poll();
-                
-                if(t.left==null && t.right==null)
-                {
-                    return level;
-                }
-                
-                if(t.left!=null)
-                {
-                    dq.addLast(t.left);
-                }
-                if(t.right!=null)
-                {
-                    dq.addLast(t.right);
-                }
-                
-            }
-            level++;
-            
-            
-            
-            
-        }
+        if(root.left!=null)
+        {l=1+minDepth(root.left);}
         
-        return level;
+        if(root.right!=null)
+        {r=1+minDepth(root.right);}
         
         
-        
-        
-        
-        
-        
+        return (int)Math.min(l,r);
         
         
         
