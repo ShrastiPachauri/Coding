@@ -16,45 +16,37 @@
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         
-        List<Integer> ans=new ArrayList<Integer>();
+        ArrayList<Integer> answer=new ArrayList<Integer>();//answer list
+        if(root==null)return  answer;
         
-        Deque<TreeNode> dq=new ArrayDeque<TreeNode>();
+        Deque<TreeNode> nodes=new ArrayDeque<TreeNode>();
         
+        nodes.addLast(root);
         
-    if(root!=null)
-       {
-           dq.add(root);
-       }
-        else
+        while(!nodes.isEmpty())
         {
             
-            return ans;
-        }
-        
-        while(!dq.isEmpty())
-        {
-            int s=dq.size();
-          
+            int s=nodes.size();
+            
             for(int i=0;i<s;i++)
             {
-                TreeNode t=dq.poll();
-                if(i==0)
-                {
-                ans.add(t.val);
-                }
-                if(t.right!=null)
-                {
-                    dq.addLast(t.right);
-                }
-                if(t.left!=null)
-                {
-                    dq.addLast(t.left);
-                }
+                
+                TreeNode currentNode=nodes.poll();
+                if(i==s-1)answer.add(currentNode.val);
+                if(currentNode.left!=null)nodes.addLast(currentNode.left);
+                if(currentNode.right!=null)nodes.addLast(currentNode.right);
+                
+                
+                
                 
             }
-           
+            
+            
+            
+            
+            
         }
-        return ans;
+        return answer;
         
         
         
