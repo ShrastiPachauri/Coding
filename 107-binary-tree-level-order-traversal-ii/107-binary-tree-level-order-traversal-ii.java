@@ -15,8 +15,7 @@
  */
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        
-        Stack<List<Integer>> stack=new Stack<List<Integer>>();
+       
         List<List<Integer>> ans=new ArrayList<List<Integer>>();
         
         Deque<TreeNode> dq=new ArrayDeque<TreeNode>();
@@ -49,28 +48,17 @@ class Solution {
                 }
                 
             }
-            stack.push(l);
+            ans.add(l);
             
             
         }
-        while(stack.size()!=0)
+       for(int i=0;i<ans.size()/2;i++)
         {
-            
-            List<Integer> x=stack.pop();
-            ans.add(x);
-            
-            
-            
-            
-            
+            List<Integer> l=ans.get(i);
+           ans.set(i,ans.get(ans.size()-1-i));
+           ans.set(ans.size()-i-1,l);
         }
         
         return ans;
-        
-        
-        
-        
-        
-        
     }
 }
