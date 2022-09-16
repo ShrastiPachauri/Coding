@@ -9,52 +9,33 @@
  * }
  */
 class Solution {
-    public ListNode removeElements(ListNode head, int val) {
-        if(head==null)
-        {
-            return head;
-        }
+    public ListNode removeElements(ListNode head, int value) {
+       if(head==null)return head;
+
+while(head!=null && head.val==value)
+{
+head=head.next;
+}
+ListNode prev=null;
+ListNode curr=head;
+
+while(curr!=null)
+{
+if(curr.val==value) //to be removed
+{
+ListNode next=curr.next;
+prev.next=curr.next;
+curr.next=null;
+curr=next;
+
+}
+else
+{
+prev=curr;
+curr=curr.next;
+}
+}
         
-        ListNode prev=null;
-        ListNode curr=head;
-            ListNode next=curr.next;
-      
-        int cnt=1;
-        while(curr.next!=null)
-        {
-            
-            if(curr.val==val && prev!=null)
-            {
-                prev.next=curr.next;
-                ListNode temp=curr;
-                curr=curr.next;
-                next=curr.next;
-                temp.next=null;
-                
-            }
-            else
-            {
-                prev=curr;
-                curr=next;
-               
-                next=curr.next;
-            }
-            
-            
-            
-        }
-        if(curr.val==val && prev!=null)
-        {
-            prev.next=null;
-        }
-        
-        
-        if(head.val==val )
-       {
-           head=head.next;
-           ListNode temp=head;
-          
-       }
         return head;
     }
 }
