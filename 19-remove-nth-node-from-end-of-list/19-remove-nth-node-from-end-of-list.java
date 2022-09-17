@@ -9,41 +9,29 @@
  * }
  */
 class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        int cnt=0;
-        
-        ListNode temp=head;
-        
-        while(temp!=null)
-        {
-            cnt++;
-            temp=temp.next;
-            
-        }
-        
-        int des=cnt-n;
-        if(des==0)
-        {
-            head=head.next;
-        }
-        else
-        {
-        temp=head;
-        cnt=0;
-        while(temp!=null)
-        {
-            cnt++;
-            if(cnt==des)
-            {
-                ListNode t=temp.next;
-                temp.next=t.next;
-                t.next=null;
-            }
-            temp=temp.next;
-            
-        }
-        }
-        return head;
-        
+    public ListNode removeNthFromEnd(ListNode node, int n) {
+        int count=0;
+
+ListNode temp=node;
+while(temp!=null)
+{
+temp=temp.next;
+count++;
+}
+count=count-n;//the node upto which, have to traverse
+if(count==0)
+{node=node.next;
+return node;
+}
+if(count<0)return node;
+temp=node;
+while(count-->1)
+{temp=temp.next;
+}
+//removal
+ListNode t=temp.next;
+temp.next=temp.next.next;
+t.next=null;
+return node;
     }
 }
