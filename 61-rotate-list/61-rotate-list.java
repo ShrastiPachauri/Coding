@@ -22,7 +22,7 @@ count++;
 }
 //count is total nodes in list
 if(k>=count)k=k%count;//efective rotation
-        System.out.println("count is "+count +"k is "+k);
+       
 if(k==0)return head;
 count=count-k;
 temp=head;
