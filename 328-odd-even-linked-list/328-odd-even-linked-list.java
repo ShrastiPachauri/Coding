@@ -11,45 +11,31 @@
 class Solution {
     public ListNode oddEvenList(ListNode head) {
         
-        if(head==null)
-        {
-            return head;
-        }
-       ListNode e=new ListNode(head.val);
-        ListNode ans=e;
-        ListNode temp=head.next;
-        int i=1;
-        while(temp!=null)
-        {
-            if(i%2==0 )
-            {
-                ListNode n=new ListNode(temp.val);
-                e.next=n;
-                //System.out.println("Value of  is"+e.val);
-                e=e.next;
-            }
-            
-            temp=temp.next;
-            i++;
-            
-        }
-        i=1;
-        temp=head.next;
-         while(temp!=null)
-        {
-            if(i%2!=0 )
-            {
-                ListNode n=new ListNode(temp.val);
-                e.next=n;
-                //System.out.println("Value of  is"+e.val);
-                e=e.next;
-            }
-            
-            temp=temp.next;
-            i++;
-            
-        }
-       
-        return ans;
+if(head==null || head.next==null ||head.next.next==null)return head; //atleast three nodes
+
+ListNode temp=head;
+ListNode tempnext=head.next;
+ListNode oddhead=temp;
+ListNode evenhead=temp.next;
+
+while(temp!=null &&  tempnext!=null)
+{
+temp.next=tempnext.next;    
+
+if(tempnext.next!=null)
+{tempnext.next=tempnext.next.next;} 
+
+temp=temp.next;   
+tempnext=tempnext.next; 
+
+}
+temp=oddhead;
+while(temp.next!=null)
+{
+temp=temp.next;
+}
+temp.next=evenhead;
+return oddhead;
+        
     }
 }
