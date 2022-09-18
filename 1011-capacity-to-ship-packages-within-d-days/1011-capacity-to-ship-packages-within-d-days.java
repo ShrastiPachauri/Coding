@@ -47,9 +47,9 @@ class Solution {
             max+=i;//max capacity that could be taken
             if(min>i)min=i;
         }
-        if(days==1)return max;
+       
         int midweight=min+(max-min)/2;
-        int min_feasible=midweight;
+        int min_feasible=max;
         while(min<=max)
         {
             midweight=min+(max-min)/2;
