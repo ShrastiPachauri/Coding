@@ -57,13 +57,13 @@ class Solution {
         c=col;
         r=row;
         
-        while(r<board.length){
+//         while(r<board.length){
             
-            if(board[r][col]=='Q'){
-                return false;
-            }
-            r++;
-        }
+//             if(board[r][col]=='Q'){
+//                 return false;
+//             }
+//             r++;
+//         }
         c=col;
         r=row;
          while(r<board.length && c>=0){
