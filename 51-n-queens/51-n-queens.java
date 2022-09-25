@@ -38,53 +38,34 @@ class Solution {
         int r=row;
         int c=col;
       
-        while(c>=0){
-            
-            if(board[row][c]=='Q'){
-                return false;
-            }
-            c--;
-        }
+        while(c>=0 && board[row][c]!='Q')c--;
+        if(c>=0)return false;
+          
         c=col;
         r=row;
-         while(r>=0){
-            
-            if(board[r][col]=='Q'){
-                return false;
-            }
-            r--;
-        }
-        c=col;
-        r=row;
+         while(r>=0 && board[r][c]!='Q')r--;
+        if(r>=0)return false;
         
-//         while(r<board.length){
-            
-//             if(board[r][col]=='Q'){
-//                 return false;
-//             }
-//             r++;
-//         }
-        c=col;
-        r=row;
-         while(r<board.length && c>=0){
-            
-            if(board[r][c]=='Q'){
-                return false;
-            }
-            r++;
-             c--;
-        }
         
         c=col;
         r=row;
-         while(r>=0 && c>=0){
-            
-            if(board[r][c]=='Q'){
-                return false;
-            }
+        
+
+         while(r<board.length && c>=0 && board[r][c]!='Q'){
+             r++;
+             c--;
+             
+         }
+            if(r<board.length && c>=0 )return false;
+          
+        
+        c=col;
+        r=row;
+         while(r>=0 && c>=0 && board[r][c]!='Q'){
             r--;
              c--;
         }
+        if(r>=0 && c>=0)return false;
         
         return true;
         
