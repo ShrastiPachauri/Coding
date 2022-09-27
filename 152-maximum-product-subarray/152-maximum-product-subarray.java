@@ -1,40 +1,30 @@
 class Solution {
+    
+   
     public int maxProduct(int[] nums) {
         
-        
-      int p=1;
-        
-        int maxpr=Integer.MIN_VALUE;
-        for(int i=0;i<nums.length;i++)
-        {
-           int t=i+1;
-            p=nums[i];
-            //System.out.println("Product with "+i+"  "+p);
-            if(p>maxpr)
-            {
-                maxpr=p;
+        int max_prod=Integer.MIN_VALUE;
+        int prod=1;
+        for(int i=0;i<nums.length;i++){
+            
+            prod*=nums[i];
+            if(prod>max_prod)max_prod=prod;
+            if(prod==0){
+                prod=1;
             }
-           while(t<nums.length)
-           {
-               
-               p*=nums[t];
-               //System.out.println("Product with "+i+"  "+p);
-               if(maxpr<p)
-               {
-                   maxpr=p;
-                   
-               }
-               t++;
-           }
-            p=1;
             
         }
-        
-        return maxpr;
-        
-        
-        
-        
+        prod=1;//reset
+        for(int i=nums.length-1;i>=0;i--){
+            
+            prod*=nums[i];
+            if(prod>max_prod)max_prod=prod;
+            if(prod==0){
+                prod=1;
+            }
+            
+        }
+        return max_prod;
         
         
         
