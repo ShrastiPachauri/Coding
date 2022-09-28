@@ -9,29 +9,30 @@
  * }
  */
 class Solution {
-    public ListNode removeNthFromEnd(ListNode node, int n) {
-        int count=0;
-
-ListNode temp=node;
-while(temp!=null)
-{
-temp=temp.next;
-count++;
-}
-count=count-n;//the node upto which, have to traverse
-if(count==0)
-{node=node.next;
-return node;
-}
-if(count<0)return node;
-temp=node;
-while(count-->1)
-{temp=temp.next;
-}
-//removal
-ListNode t=temp.next;
-temp.next=temp.next.next;
-t.next=null;
-return node;
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        if(head==null)return head;
+        ListNode fast=head;
+        ListNode slow=head;
+        
+        int steps=n;
+        while(steps-->0){
+            fast=fast.next;
+        }
+        
+        if(fast==null){
+            head=head.next;
+            return head;
+        }
+        
+        while(fast.next!=null){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        
+        slow.next=slow.next.next;
+        return head;
+        
+        
     }
 }
