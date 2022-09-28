@@ -1,1 +1,3 @@
+//I was starting from head ,but start from slow=head.next and fat =head.next.next .Also when they meet it only confirsm s cycle detected and first.Place one pointer at haed and traverse again ,when they equal again then return
 ​
+P.S: So, when slow and fast meet ,it can be any point in the cycle therefore ,. To find point of start of cycle place slow at head ,and move slow and fat with one step each .They will eventually meet at start of LL.(Flloyd Cycle Detection)
