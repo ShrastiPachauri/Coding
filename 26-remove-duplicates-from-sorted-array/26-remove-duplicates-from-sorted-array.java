@@ -1,26 +1,30 @@
 class Solution {
-    
-   
-    Stack<Integer> s=new Stack<Integer>();
-    
     public int removeDuplicates(int[] nums) {
-       
-        s.push(nums[0]);
+        //1 2 3 4 4 4-->1 2 3 4
+        int l=0;
+        int r=0;
+        if(nums.length==1)return 1;
         
-        for(int i=1;i<nums.length;i++)
-        {
-            if(s.peek()!=nums[i])
-            {
-                s.push(nums[i]);
-            }
-          
-        }
-         int ans=s.size();
-        for(int i=s.size()-1;i>=0;i--)
-        {
-            nums[i]=s.pop();
+        
+        for( r=0;r<nums.length;r++){
             
+            if(nums[r]!=nums[l]){
+                nums[l+1]=nums[r];
+                l++;
+            }
+           
         }
-        return ans;
+        return l+1;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
