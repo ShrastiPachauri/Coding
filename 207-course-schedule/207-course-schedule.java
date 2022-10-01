@@ -4,7 +4,7 @@ class Solution {
     {
         visited[v]=1;
         dfsvisited[v]=1;
-       System.out.println("in path of"+v);
+       
         for(int x:l.get(v))
         {
             if(visited[x]==0)
@@ -23,7 +23,7 @@ class Solution {
             
             
         }
-        System.out.println("completed "+v);
+       
         dfsvisited[v]=0;
         return false;//cycle not found
         
