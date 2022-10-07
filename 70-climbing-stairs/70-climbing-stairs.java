@@ -1,33 +1,21 @@
 class Solution {
-   
-    public int func(int n ,int[]remember)
-    {
-        if(n==0)
-        {
-            return 1;
+    int dp[];
+    public int steps(int n,int[]dp){
+       
+        int x=0,y=0;
+        if(n<=1)return 1;
+         if(dp[n]!=-1)return dp[n];
+        x=steps(n-1,dp);
+        if(n>1){
+            y=steps(n-2,dp);
         }
-        if(n<0)
-        {
-            return 0;
-        }
-        //System.out.println("n is "+n);
-        if( remember[n]!=0)
-        {
-            return remember[n];
-        }
-        
-           int x= func(n-1 ,remember)+func(n-2 ,remember);
-        remember[n]=x;
-        
-        
-        return x;
-        
-        
+        return dp[n]=x+y;
     }
+    
+    
     public int climbStairs(int n) {
-        
-         int[]remember=new int[n+1];
-        return func(n,remember);
-        
+        dp=new int[n+1];
+        Arrays.fill(dp,-1);
+        return steps(n,dp);
     }
 }
