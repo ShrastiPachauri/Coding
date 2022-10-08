@@ -1,65 +1,32 @@
 class Solution {
     
-    
-    int [][]matrix;
-    
-    
-    
-    
-    
-    int f(int []nums,int prev,int curr,int n)
-    {
-    
-    //base
-        if(curr==n)
+    int[][]dp;
+    public int LIS(int[]nums,int index,int prev){
+        int x=0,y=0;
+        if(index>=nums.length)return 0;
+        if( prev!=Integer.MIN_VALUE && dp[index][prev]!=-1 )return dp[index][prev];
+        
+       if(prev==Integer.MIN_VALUE||nums[index]>nums[prev]){
+           x=1+LIS(nums,index+1,index);
+           y=0+LIS(nums,index+1,prev);
+           if(prev!=Integer.MIN_VALUE)dp[index][prev]=Math.max(x,y);
+           return (int)Math.max(x,y);
+       }
+        else
         {
-            return 0;
-        }
-    
-    //left subtree --befor backtracking
-        if(matrix[prev+1][curr+1]!=-1)
-        {
-            return matrix[prev+1][curr+1];
+           
+            return LIS(nums,index+1,prev);
         }
         
-       int len=0+ f(nums,prev,curr+1,n);
         
-        //right subtree -after return tree to backtrk
-        
-        if(prev==-1||nums[curr]>nums[prev])
-        {
-            
-            len=Math.max(len, 1+f(nums,curr,curr+1,n));
-            
-            
-            
-        }
-        matrix[prev+1][curr+1]=len;
-        
-        
-        
-        
-    
-    return  matrix[prev+1][curr+1];
-    
-    
     }
+    
+    
     public int lengthOfLIS(int[] nums) {
-        
-        matrix=new int[nums.length+1][nums.length+1];
-        for(int i=0;i<matrix.length;i++)
-        {
-        for(int j=0;j<matrix[0].length;j++)
-        {
-            matrix[i][j]=-1;
-            
-            }
-        }
-        return f(nums,-1,0,nums.length);
-        
-        
-        
-        
+        dp=new int[nums.length+1][nums.length+1];
+        for(int[]x:dp)
+        {Arrays.fill(x,-1);}
+        return LIS(nums,0,Integer.MIN_VALUE);
         
     }
 }
