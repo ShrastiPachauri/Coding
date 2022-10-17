@@ -52,30 +52,41 @@ class Solution {
         int curr=-1;
         if(k>(arr1.length+arr2.length))return -1;
         
-        while(l!=arr1.length && r!=arr2.length){
-            if(cnt==k)return curr;
-            if(arr1[l]<=arr2[r]){
-                curr=arr1[l];
-              cnt++;
-                l++;
-                
+        PriorityQueue<Integer>elements=new PriorityQueue<Integer>(Collections.reverseOrder());
+        int i=0;//pointers to arra1
+        int j=0;//---to arr2
+        while(i<arr1.length && j<arr2.length){
+           
+            if(arr1[i]<arr2[j]){
+                 elements.add(arr1[i]);
+                 i++;
             }
             else{
-                curr=arr2[r];
-              cnt++;
-                r++;
-               
+                elements.add(arr2[j]);
+            j++;
+                
+            }
+            if(elements.size()==k){
+                return elements.poll();
+            }
+            
+        }
+        if(i<arr1.length){
+            while(elements.size()!=k){
+                elements.add(arr1[i]);
+                i++;
             }
         }
-        int []arr=(l==arr1.length)?arr2:arr1;
-        int in=(l==arr1.length)?r:l;
-        while(in <arr.length && cnt!=k){
-            
-            curr=arr[in++];
-          cnt++;
-            
+        if(j<arr2.length){
+            while(elements.size()!=k){
+                elements.add(arr2[j]);
+                j++;
+            }
         }
-        return curr;
+        
+        
+        
+        return elements.poll();
         
         
     }
