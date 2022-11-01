@@ -14,29 +14,23 @@
  * }
  */
 class Solution {
-    
-
-    
-    public int findBottomLeftValue(TreeNode root) {
-        if(root==null)return -1;
+    int mdepth=0;
+        int max=0;
         
-        Deque<TreeNode> dq=new ArrayDeque<TreeNode>();
-        dq.addLast(root);
-        ArrayList<Integer> arr=new ArrayList<Integer>();
-    while(!dq.isEmpty()){
-        
-        int s=dq.size();
-        arr.clear();
-        for(int i=0;i<s;i++){
-            TreeNode node=dq.poll();
-            arr.add(node.val);
-            if(node.left!=null)dq.addLast(node.left);
-            if(node.right!=null)dq.addLast(node.right);
-            
+    public void findLeft(TreeNode root, int depth){
+        if(root==null)return;
+        if(depth>mdepth){
+            mdepth=depth;
+            max=root.val;
         }
+        findLeft(root.left,depth+1);
+        findLeft(root.right,depth+1);
         
     }
-        
-        return arr.get(0);
+    
+    public int findBottomLeftValue(TreeNode root) {
+        max=root.val;
+      findLeft(root,0);
+        return max;
     }
 }
